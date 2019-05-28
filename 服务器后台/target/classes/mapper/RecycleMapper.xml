@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.rubbish.dao.RecycleDao" >
+    <resultMap id="BaseResultMap" type="com.example.rubbish.model.Article" >
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        title,content
+    </sql>
+    <resultMap id="RecyclerResultMap" type="com.example.rubbish.model.Recycler" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="photo" property="photo" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Recycler_Column_List" >
+        name,photo,description,phone
+    </sql>
+    <select id="getAllArticle" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from article
+    </select>
+    <select id="getKindByName" resultType="java.lang.String">
+        select kind from kind where name = #{name,jdbcType=VARCHAR}
+    </select>
+    <select id="getAllRecyclers" resultMap="RecyclerResultMap">
+        select
+        <include refid="Recycler_Column_List" />
+        from recycler
+    </select>
+
+    <insert id="insertOrder" parameterType="com.example.rubbish.model.Order">
+            insert into order_list(name,phone,address,time,recyclerName,recyclerPhone,recyclerPhoto)
+            values(
+            #{name,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR},
+            #{address,jdbcType=VARCHAR},
+            #{time,jdbcType=VARCHAR},
+            #{recyclerName,jdbcType=VARCHAR},
+            #{recyclerPhone,jdbcType=VARCHAR},
+            #{recyclerPhoto,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateOrder"  parameterType="com.example.rubbish.model.Order">
+        UPDATE order_list
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name!=null">name = #{name},</if>
+            <if test="phone!=null">phone = #{phone},</if>
+            <if test="address!=null">address = #{address},</if>
+            <if test="time!=null">time = #{time},</if>
+            <if test="recyclerName!=null">recyclerName = #{recyclerName},</if>
+            <if test="recyclerPhone!=null">recyclerPhone = #{recyclerPhone},</if>
+            <if test="recyclerPhoto!=null">recyclerPhoto = #{recyclerPhoto},</if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <!--返回全部的bean做list的时候，注意：resultType为bean、保证字段对应、imp的方法返回还是List-->
+    <select id="getOrderListByName" resultType="com.example.rubbish.model.Order">
+        select * from order_list where name = #{name,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getOrderListById" resultType="com.example.rubbish.model.Order">
+        select * from order_list where id = #{id}
+    </select>
+
+    <delete id="deleteOrder" parameterType="java.lang.Integer">
+        delete from order_list where id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-card": "../../assets/dist/card/index",
+    "i-button": "../../assets/dist/button/index",
+    "i-message": "../../assets/dist/message/index",
+    "i-input": "../../assets/dist/input/index",
+    "i-toast": "../../assets/dist/toast/index"
+  }
+}

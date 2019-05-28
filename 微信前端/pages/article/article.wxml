@@ -1,0 +1,9 @@
+<!--pages/article/article.wxml-->
+<view class='container'>
+  <view class='title'>
+    <text>{{title}}</text>
+  </view>
+  <view class='content'>
+    <textarea disabled>{{content}}</textarea>
+  </view>
+</view>

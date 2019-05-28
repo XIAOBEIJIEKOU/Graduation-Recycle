@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/recycle/recycle",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/article/article",
+    "pages/order/order",
+    "pages/home/home",
+    "pages/orderUpdate/orderUpdate"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#64d9a0",
+    "navigationBarTitleText": "垃圾达人",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "分类达人",
+        "iconPath": "assets/image/index.png",
+        "selectedIconPath": "assets/image/index-active.png"
+      },
+      {
+        "pagePath": "pages/recycle/recycle",
+        "text": "回收箱",
+        "iconPath": "assets/image/recycle.png",
+        "selectedIconPath": "assets/image/recycle-active.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我",
+        "iconPath": "assets/image/home.png",
+        "selectedIconPath": "assets/image/home-active.png"
+      }
+    ]
+  }
+}

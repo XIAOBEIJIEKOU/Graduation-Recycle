@@ -1,0 +1,21 @@
+<!--pages/order/order.wxml-->
+<view>
+  <view class='cards'>
+    <i-card title="{{recyclerName}}" extra="{{recyclerPhone}}" thumb="/assets/image/{{recyclerPhoto}}.png" full>
+      <!-- <view slot="content" class='cardcontent'>{{workerDesc}}</view> -->
+    </i-card>
+  </view>
+  <view>
+    <i-panel title="预约回收">
+      <i-input value="{{ name }}" title="业主姓名" placeholder="请输入姓名"  maxlength="10" bind:change='name' disabled/>
+      <i-input value="{{ phone }}" type="number" title="联系电话"  maxlength="12" placeholder="请输入手机号"  bind:change='phone'/>
+      <i-input value="{{ address }}" type="textarea" title="详细地址"  maxlength="20" placeholder="请输入详细地址(最多50字)" maxlength="50" bind:change='address'/>
+      <i-input value="{{ time }}" title="可取件时间" placeholder="请输入可取件时间"  maxlength="30" bind:change='time'/>
+    </i-panel>
+  </view>
+
+  <i-button bind:click="handleOrder" type="success">确定预约</i-button>
+  <i-button bind:click="handleCancle" type="ghost">取消</i-button>
+</view>
+
+<i-toast id="toast" />

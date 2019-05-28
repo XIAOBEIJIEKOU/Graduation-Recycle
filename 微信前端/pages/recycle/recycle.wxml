@@ -1,0 +1,13 @@
+<view class='page'>
+  <!-- <view>请预约你最心仪的环卫工人上门收件</view> -->
+  <block wx:for="{{recyclers}}" wx:key="key">
+    <view class='cards'>
+      <i-card title="{{item.name}}" extra="tel：{{item.phone}}" thumb="/assets/image/{{item.photo}}.png">
+        <view slot="content" class='cardcontent'>{{item.description}}</view>
+        <view slot="footer">
+          <i-button size="small" type="success" bind:click="handleOrder" data-name='{{item.name}}' data-phone='{{item.phone}}' data-photo='{{item.photo}}'>预约</i-button>
+        </view>
+      </i-card>
+    </view>
+  </block>
+</view>

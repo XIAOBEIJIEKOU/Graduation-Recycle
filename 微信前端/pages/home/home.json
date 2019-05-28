@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-card": "../../assets/dist/card/index",
+    "i-collapse": "../../assets/dist/collapse/index",
+    "i-collapse-item": "../../assets/dist/collapse-item/index",
+    "i-tabs": "../../assets/dist/tabs/index",
+    "i-tab": "../../assets/dist/tab/index",
+    "i-tag": "../../assets/dist/tag/index"
+  }
+}

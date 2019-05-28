@@ -1,0 +1,22 @@
+/* pages/recycle/recycle.wxss */
+
+.cards {
+  margin-top: 10rpx;
+}
+
+.cardcontent {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.order{
+  text-align:left;
+align-items:left;
+justify-content: left;
+margin: auto;
+}

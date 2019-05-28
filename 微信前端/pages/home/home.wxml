@@ -1,0 +1,31 @@
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+</view>
+<!-- 展示预约条数 -->
+<view class="caption-wrap">
+  <text class="caption-title">预约订单列表</text>
+  <block wx:for="{{orderList}}" wx:key="key">
+    <i-collapse name="{{orderList}}">
+      <i-collapse-item name="{{item.time}}" title="{{item.time}}" i-class-title="collapse-item-title" i-class-content="collapse-item-content">
+        <view slot="content">
+          <text>业主：{{item.name}}
+                预留电话：{{item.phone}}
+                预留地址：{{item.address}}
+                预约时间：{{item.time}}
+                取件人姓名：{{item.recyclerName}}
+                取件人电话：{{item.recyclerPhone}}
+          </text>
+          <i-tabs color="#64d9a0">
+            <i-tab key="tab1" title="修改" bindtap="handleUpdate" data-id="{{item.id}}" data-name="{{item.name}}"></i-tab>
+            <i-tab key="tab2" title="删除" bindtap="handleCancle" data-id="{{item.id}}"></i-tab>
+          </i-tabs>
+        </view>
+      </i-collapse-item>
+    </i-collapse>
+  </block>
+</view>
+<!-- 积分兑换 -->

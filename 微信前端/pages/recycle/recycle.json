@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-card": "../../assets/dist/card/index",
+    "i-avatar": "../../assets/dist/avatar/index",
+    "i-modal": "../../assets/dist/modal/index",
+    "i-button": "../../assets/dist/button/index",
+    "i-message": "../../assets/dist/message/index",
+    "i-input": "../../assets/dist/input/index"
+  }
+}
